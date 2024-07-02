@@ -1,7 +1,7 @@
 const imgs = [
-  "images/hip1.jpg",
-  "images/hip2.jpg",
-  "images/hip3.jpg"
+  "images/portrait1.jpg",
+  "images/portrait1.jpg",
+  "images/portrait1.jpg"
 ]
 
 let container = document.getElementById("container");
