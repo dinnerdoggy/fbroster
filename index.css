@@ -7,3 +7,10 @@ body {
 .team-img {
     width: 150px;
 }
+
+#container {
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+    border: 5px solid red;
+}
