@@ -36,12 +36,13 @@ body {
 
 .coach-image {
     width: 150px;
-    margin: 20px;
+    margin: 40px 0;
 }
 
 .info {
     margin: 0;
     padding: 0;
+    page-break-before: always;
 }
 
 .main { /*flex container*/
