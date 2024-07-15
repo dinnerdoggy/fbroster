@@ -9,10 +9,11 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     border: 5px solid darkgrey;
-    height: 260px;
+    min-height: 260px;
 }
 
 .glass {
@@ -25,8 +26,22 @@ body {
 
 .coach { /*flex-item*/
     display: flex;
-    width: 250px;
-    height: 150px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 200px;
+}
+
+.coach-image {
+    width: 150px;
+    margin: 20px;
+}
+
+.info {
+    margin: 0;
+    padding: 0;
 }
 
 .main { /*flex container*/
