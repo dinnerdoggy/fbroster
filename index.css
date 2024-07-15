@@ -10,7 +10,8 @@ body {
     background-size: cover;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 10%;
     align-items: center;
     border-bottom: 5px solid transparent;
     border-image: linear-gradient(to right, rgb(150, 113, 22), gold);
@@ -32,7 +33,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 350px;
+    width: 385px;
     height: 200px;
 }
 
@@ -59,4 +60,6 @@ body {
     width: 150px;
     height: 150px;
     margin: 2%;
+    text-align: center;
+    align-content: center;
 }
