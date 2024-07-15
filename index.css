@@ -10,17 +10,28 @@ body {
     background-size: cover;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     border: 5px solid darkgrey;
+    height: 260px;
+}
+
+.glass {
+    border: 1px solid white;
+    border-style: outset;
+    border-radius: 8%;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
 }
 
 .coach { /*flex-item*/
     display: flex;
     width: 250px;
-    height: 250px;
-    border: 5px solid orange;
+    height: 150px;
 }
 
 .main { /*flex container*/
+    background-image: url("images/football.jpg");
+    background-size: cover;
     display: flex;
     border: 5px solid yellow;
     height: 100vh;
@@ -29,6 +40,5 @@ body {
 .profile { /*flex-item*/
     width: 150px;
     height: 150px;
-    border: 5px solid blue;
     margin: 2%;
 }
