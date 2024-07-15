@@ -1,7 +1,7 @@
 body {
     background-color: black;
     color: beige;
-    border: 5px solid red;
+    /* border: 5px solid red; */
 }
 
 .hero-image {  /*flex container*/
@@ -12,7 +12,9 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    border: 5px solid darkgrey;
+    border-bottom: 5px solid transparent;
+    border-image: linear-gradient(to right, rgb(150, 113, 22), gold);
+    border-image-slice: 1;
     min-height: 260px;
 }
 
@@ -49,7 +51,7 @@ body {
     background-image: url("images/football.jpg");
     background-size: cover;
     display: flex;
-    border: 5px solid yellow;
+    /* border: 5px solid yellow; */
     height: 100vh;
 }
 
