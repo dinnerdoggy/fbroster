@@ -1,27 +1,34 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    background-image: url("field.jpg");
-    background-position: center;
+body {
+    background-color: black;
+    color: beige;
+    border: 5px solid red;
 }
 
-.thumbnails {
+.hero-image {  /*flex container*/
+    background-image: url("images/heroField.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
-    flex-wrap: wrap;
-    max-width: 560px;
-    margin: 50px auto;
+    justify-content: space-around;
+    border: 5px solid darkgrey;
 }
 
-a {
-    display: block;
+.coach { /*flex-item*/
+    display: flex;
+    width: 250px;
+    height: 250px;
+    border: 5px solid orange;
 }
 
-.thumbnail {
-    width: 180px;
-    border-radius: 5px;
-    margin: 3px;
+.main { /*flex container*/
+    display: flex;
+    border: 5px solid yellow;
+    height: 100vh;
 }
 
-img {
-    display: block;
+.profile { /*flex-item*/
+    width: 150px;
+    height: 150px;
+    border: 5px solid blue;
+    margin: 2%;
 }
