@@ -10,7 +10,8 @@ body {
     background-size: cover;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 10%;
     align-items: center;
     border-bottom: 5px solid transparent;
     border-image: linear-gradient(to right, rgb(150, 113, 22), gold);
