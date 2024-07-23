@@ -40,6 +40,12 @@ body {
 .coach-image {
     width: 150px;
     margin: 40px 0;
+    border-radius: 8%;
+}
+
+.player-image {
+    margin: 4px 4px 0 4px;
+    border-radius: 8%;
 }
 
 .info {
@@ -52,14 +58,29 @@ body {
     background-image: url("images/football.jpg");
     background-size: cover;
     display: flex;
-    /* border: 5px solid yellow; */
     height: 100vh;
+    border-bottom: 5px solid transparent;
+    border-image: linear-gradient(to right,gold, rgb(150, 113, 22));
+    border-image-slice: 1;
 }
 
-.profile { /*flex-item*/
+.profile { /*flex-item & container*/
     width: 150px;
-    height: 150px;
+    height: 220px; /*fit-content;  <-- in case it gets wonky*/
     margin: 2%;
-    text-align: center;
-    align-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+    list-style: none;
+    padding-left: 4px;
+    margin-top: 4px;
+    margin-left: 4px;
+    overflow-wrap: anywhere;
+}
+
+ul li {
+    margin-bottom: 4px;
+    border-bottom: 1px solid white;
 }
