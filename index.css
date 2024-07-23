@@ -57,6 +57,8 @@ body {
     background-image: url("images/football.jpg");
     background-size: cover;
     display: flex;
+    flex-wrap: wrap;
+    align-content: start;
     height: 100vh;
     border-bottom: 5px solid transparent;
     border-image: linear-gradient(to right,gold, rgb(150, 113, 22));
@@ -66,7 +68,7 @@ body {
 .profile { /*flex-item & container*/
     width: 150px;
     height: 220px; /*fit-content;  <-- in case it gets wonky*/
-    margin: 2%;
+    margin: 2% 2% 0 2%;
     display: flex;
     flex-direction: column;
 }
