@@ -35,6 +35,7 @@ body {
     align-items: center;
     width: 385px;
     height: 200px;
+    margin: 2% 0;
 }
 
 .coach-image {
@@ -126,4 +127,18 @@ input {
     border: none;
     font-size: 1.25em;
     text-align: center;
+}
+
+.create {
+    color: beige;
+    border: 1px solid white;
+    border-style: outset;
+    border-radius: 8px;
+    background-color: darkblue;
+    width: 40%;
+}
+
+.submitContainer {
+    display: flex;
+    justify-content: center;
 }
