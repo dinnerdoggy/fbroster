@@ -93,6 +93,7 @@ function renderDom() {
      <li id="position">${players[i].position}</li>
      <li id="school">${players[i].school}</li>
     </ul>
+    <button class="btn btn-danger" id="delete--${players[i].id}">Remove</button>
   </div>`
   }
 }
@@ -120,6 +121,18 @@ const createPlayer = (e) => {
 }
 
 form.addEventListener('submit', createPlayer);
+
+// delete ********************
+
+domString.addEventListener("click", (e) => {
+  if (e.target.id.includes("delete")) {
+    const [, id] = e.target.id.split("--");
+    const index = players.findIndex(e => e.id === Number(id));
+    players.splice(index, 1);
+    domString.innerHTML = "";
+    renderDom();
+  }
+});
 
 
 
