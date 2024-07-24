@@ -93,7 +93,7 @@ function renderDom() {
      <li id="position">${players[i].position}</li>
      <li id="school">${players[i].school}</li>
     </ul>
-    <button class="btn btn-danger" id="delete--${players[i].id}">Remove</button>
+    <button class="btn btn-danger" id="delete--${players[i].id}"><i class="fa fa-trash"></i></button>
   </div>`
   }
 }
@@ -124,7 +124,7 @@ form.addEventListener('submit', createPlayer);
 
 // delete ********************
 
-domString.addEventListener("click", (e) => {
+domString.addEventListener("dblclick", (e) => {
   if (e.target.id.includes("delete")) {
     const [, id] = e.target.id.split("--");
     const index = players.findIndex(e => e.id === Number(id));

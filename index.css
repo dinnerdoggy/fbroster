@@ -68,7 +68,7 @@ body {
 
 .profile { /*flex-item & container*/
     width: 150px;
-    height: 220px; /*fit-content;  <-- in case it gets wonky*/
+    height: 230px; /*fit-content;  <-- in case it gets wonky*/
     margin: 2% 2% 0 2%;
     display: flex;
     flex-direction: column;
@@ -114,59 +114,9 @@ input {
 }
 
 .btn {
-    justify-content: center;
-}
-
-
-$delete-red: red;
-
-body {
-  margin: 32px;
-}
-
-.btn {
-  display: flex;
-  align-items: center;
-  background: none;
-  border: 1px solid lighten(gray, 24%);
-  height: 48px;
-  padding: 0 24px 0 16px;
-  letter-spacing: .25px;
-  border-radius: 24px;
-  cursor: pointer;
-  
-  &:focus {
-    outline: none;
-  }
-  
-  .mdi {
-    margin-right: 8px;
-  }
-}
-
-.btn-delete {
-  font-size: 16px;
-  color: red;
-  
-  >.mdi-delete-empty {
-    display: none;
-  }
-  
-  &:hover {
-    background-color: lighten(red, 48%);
-    
-    >.mdi-delete-empty {
-      display: block;
-    }
-    
-    >.mdi-delete {
-      display: none;
-    }
-  }
-  
-
-  
-  &:focus {
-    box-shadow: 0 0 0 4px lighten(red, 40%);
-  }
+    color: #404040;
+    background: none;
+    border: none;
+    font-size: 1.25em;
+    text-align: center;
 }
