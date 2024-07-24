@@ -93,6 +93,10 @@ h2 {
     display: table-header-group;
 }
 
+.formContainer {
+    margin: 2%;
+}
+
 form {
     display: table;
     width: fit-content;
