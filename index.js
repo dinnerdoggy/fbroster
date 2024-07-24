@@ -122,6 +122,18 @@ const createPlayer = (e) => {
 
 form.addEventListener('submit', createPlayer);
 
+// delete ********************
+
+domString.addEventListener("click", (e) => {
+  if (e.target.id.includes("delete")) {
+    const [, id] = e.target.id.split("--");
+    const index = players.findIndex(e => e.id === Number(id));
+    players.splice(index, 1);
+    domString.innerHTML = "";
+    renderDom();
+  }
+});
+
 
 
 
