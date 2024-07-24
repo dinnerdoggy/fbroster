@@ -87,21 +87,42 @@ const domString = document.querySelector(".main")
 function renderDom() {
   for (let i = 0; i < players.length; i++) {
     domString.innerHTML += `<div class="profile glass">
-<img class="player-image" src="images/portrait1.jpg" alt="image not found">
-<ul>
-    <li id="name">Casey Cunningham</li>
-    <li id="position">Wide Receiver</li>
-    <li id="school">McGavock Highschool</li>
-</ul>
-</div>`
+    <img id="formImage" class="player-image" src="${players[i].imageUrl}" alt="image not found">
+    <ul>
+     <li id="name">${players[i].name}</li>
+     <li id="position">${players[i].position}</li>
+     <li id="school">${players[i].school}</li>
+    </ul>
+  </div>`
   }
 }
 
-console.log("line 30, connected")
+
+
+// create ******************
+const form = document.querySelector("form")
+
+const createPlayer = (e) => {
+  e.preventDefault();
+
+  const newPlayerObj = {
+    id: players.length +1,
+    name: document.querySelector("#form-name").value,
+    position: document.querySelector("#form-pos").value,
+    school: document.querySelector("#form-school").value,
+    imageUrl: document.querySelector("#form-image").value,
+  }
+
+  players.push(newPlayerObj);
+  domString.innerHTML = "";
+  renderDom();
+  form.reset();
+}
+
+form.addEventListener('submit', createPlayer);
+
+
+
+
+
 renderDom()
-
-
-
-
-
-
