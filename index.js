@@ -93,6 +93,7 @@ function renderDom() {
      <li id="position">${players[i].position}</li>
      <li id="school">${players[i].school}</li>
     </ul>
+    <button class="btn btn-danger" id="delete--${players[i].id}">Remove</button>
   </div>`
   }
 }
