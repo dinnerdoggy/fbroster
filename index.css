@@ -60,7 +60,9 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-content: start;
-    height: 100vh;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
     border-bottom: 5px solid transparent;
     border-image: linear-gradient(to right,gold, rgb(150, 113, 22));
     border-image-slice: 1;
@@ -68,9 +70,9 @@ body {
 
 .profile { /*flex-item & container*/
     width: 150px;
-    min-height: 230px; /*fit-content;  <-- in case it gets wonky*/
+    min-height: 230px;
     height: fit-content;
-    margin: 2% 2% 0 2%;
+    margin: 1%;
     display: flex;
     flex-direction: column;
 }
@@ -91,6 +93,10 @@ ul li {
 h2 {
     margin: 8px auto;
     display: table-header-group;
+}
+
+.formContainer {
+    margin: 2%;
 }
 
 form {
