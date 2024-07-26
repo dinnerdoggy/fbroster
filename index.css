@@ -33,14 +33,14 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 385px;
-    height: 200px;
+    width: 24.06rem;
+    height: 12.5rem;
     margin: 2% 0;
 }
 
 .coach-image {
-    width: 150px;
-    margin: 40px 0;
+    width: 9.375rem;
+    margin: 2.5rem 0;
     border-radius: 8%;
 }
 
@@ -121,14 +121,6 @@ input {
     display: table-cell;
 }
 
-.btn {
-    color: #404040;
-    background: none;
-    border: none;
-    font-size: 1.25em;
-    text-align: center;
-}
-
 .create {
     color: beige;
     border: 1px solid white;
@@ -141,4 +133,23 @@ input {
 .submitContainer {
     display: flex;
     justify-content: center;
+}
+
+.btn-danger {
+    color: #404040;
+    background: none;
+    font-size: 1.25em;
+    text-align: center;
+    border: none;
+}
+
+.trashContainer {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    flex-grow: 1;
+}
+
+.fa-trash {
+    pointer-events: none; /* Make sure the icon does not block click events */
 }
