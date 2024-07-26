@@ -28,7 +28,9 @@ const renderDom = (players) => {
           <li>${player.position}</li>
           <li>${player.school}</li>
         </ul>
-        <button class="btn btn-danger" id="delete--${player.id}"><i class="fa fa-trash"></i></button>
+        <div class="trashContainer">
+          <button class="btn btn-danger" id="delete--${player.id}"><i class="fa fa-trash"></i></button>
+        </div>
       </div>
     `;
   });
@@ -67,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadPlayers();
 
-  domString.addEventListener("click", (e) => {
+  domString.addEventListener("dblclick", (e) => {
     if (e.target.id.includes("delete")) {
       const [, id] = e.target.id.split("--");
       const playerRef = ref(database, `players/${id}`);
