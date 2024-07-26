@@ -1,141 +1,77 @@
-const players = [
-  {
-    id: 1,
-    name: "Casey Cunningham",
-    position: "Wide Reciever",
-    school: "McGavock Highschool",
-    imageUrl: "images/portrait1.jpg",
-  },
-  {
-    id: 2,
-    name: "Casey Cunningham",
-    position: "Wide Reciever",
-    school: "McGavock Highschool",
-    imageUrl: "images/portrait1.jpg",
-  },
-  {
-    id: 3,
-    name: "Casey Cunningham",
-    position: "Wide Reciever",
-    school: "McGavock Highschool",
-    imageUrl: "images/portrait1.jpg",
-  },
-  {
-    id: 4,
-    name: "Casey Cunningham",
-    position: "Wide Reciever",
-    school: "McGavock Highschool",
-    imageUrl: "images/portrait1.jpg",
-  },
-  {
-    id: 5,
-    name: "Casey Cunningham",
-    position: "Wide Reciever",
-    school: "McGavock Highschool",
-    imageUrl: "images/portrait1.jpg",
-  },
-  {
-    id: 6,
-    name: "Casey Cunningham",
-    position: "Wide Reciever",
-    school: "McGavock Highschool",
-    imageUrl: "images/portrait1.jpg",
-  },
-  {
-    id: 7,
-    name: "Casey Cunningham",
-    position: "Wide Reciever",
-    school: "McGavock Highschool",
-    imageUrl: "images/portrait1.jpg",
-  },
-  {
-    id: 8,
-    name: "Casey Cunningham",
-    position: "Wide Reciever",
-    school: "McGavock Highschool",
-    imageUrl: "images/portrait1.jpg",
-  },
-  {
-    id: 9,
-    name: "Casey Cunningham",
-    position: "Wide Reciever",
-    school: "McGavock Highschool",
-    imageUrl: "images/portrait1.jpg",
-  },
-  {
-    id: 10,
-    name: "Casey Cunningham",
-    position: "Wide Reciever",
-    school: "McGavock Highschool",
-    imageUrl: "images/portrait1.jpg",
-  },
-  {
-    id: 11,
-    name: "Casey Cunningham",
-    position: "Wide Reciever",
-    school: "McGavock Highschool",
-    imageUrl: "images/portrait1.jpg",
-  },
-];
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
+const appSettings = {
+  apiKey: "AIzaSyBJD0eV2nbWcxctiadfFF8YMDITxdZU40E",
+  authDomain: "roster-6e993.firebaseapp.com",
+  databaseURL: "https://roster-6e993-default-rtdb.firebaseio.com",
+  projectId: "roster-6e993",
+  storageBucket: "roster-6e993.appspot.com",
+  messagingSenderId: "380947205868",
+  appId: "1:380947205868:web:6d7653ba7ef3898b33dfc9"
+};
 
-// Main section connection where dom is rendered
-const domString = document.querySelector(".main")
+const app = initializeApp(appSettings);
+const database = getDatabase(app);
+const playersInDb = ref(database, "players");
 
+const domString = document.querySelector(".main");
 
-// Defining the function to render the array to the dom
-function renderDom() {
-  for (let i = 0; i < players.length; i++) {
-    domString.innerHTML += `<div class="profile glass">
-    <img id="formImage" class="player-image" src="${players[i].imageUrl}" alt="image not found">
-    <ul>
-     <li id="name">${players[i].name}</li>
-     <li id="position">${players[i].position}</li>
-     <li id="school">${players[i].school}</li>
-    </ul>
-    <button class="btn btn-danger" id="delete--${players[i].id}"><i class="fa fa-trash"></i></button>
-  </div>`
-  }
-}
+const renderDom = (players) => {
+  domString.innerHTML = ""; // Clear the existing content
+  players.forEach(player => {
+    domString.innerHTML += `
+      <div class="profile glass">
+        <img class="player-image" src="${player.imageUrl}" alt="image not found">
+        <ul>
+          <li>${player.name}</li>
+          <li>${player.position}</li>
+          <li>${player.school}</li>
+        </ul>
+        <button class="btn btn-danger" id="delete--${player.id}"><i class="fa fa-trash"></i></button>
+      </div>
+    `;
+  });
+};
 
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector("#form");
 
+  const createPlayer = (e) => {
+    e.preventDefault();
 
-// create ******************
-const form = document.querySelector("form")
+    const newPlayerObj = {
+      name: document.querySelector("#form-name").value,
+      position: document.querySelector("#form-pos").value,
+      school: document.querySelector("#form-school").value,
+      imageUrl: document.querySelector("#form-image").value,
+    };
 
-const createPlayer = (e) => {
-  e.preventDefault();
+    push(playersInDb, newPlayerObj);
+    form.reset();
+  };
 
-  const newPlayerObj = {
-    id: players.length +1,
-    name: document.querySelector("#form-name").value,
-    position: document.querySelector("#form-pos").value,
-    school: document.querySelector("#form-school").value,
-    imageUrl: document.querySelector("#form-image").value,
-  }
+  form.addEventListener('submit', createPlayer);
 
-  players.push(newPlayerObj);
-  domString.innerHTML = "";
-  renderDom();
-  form.reset();
-}
+  const loadPlayers = () => {
+    onValue(playersInDb, (snapshot) => {
+      const playersArray = [];
+      snapshot.forEach((childSnapshot) => {
+        const player = childSnapshot.val();
+        player.id = childSnapshot.key; // Adding the unique key to the player object
+        playersArray.push(player);
+      });
+      renderDom(playersArray);
+    });
+  };
 
-form.addEventListener('submit', createPlayer);
+  loadPlayers();
 
-// delete ********************
-
-domString.addEventListener("dblclick", (e) => {
-  if (e.target.id.includes("delete")) {
-    const [, id] = e.target.id.split("--");
-    const index = players.findIndex(e => e.id === Number(id));
-    players.splice(index, 1);
-    domString.innerHTML = "";
-    renderDom();
-  }
+  domString.addEventListener("click", (e) => {
+    if (e.target.id.includes("delete")) {
+      const [, id] = e.target.id.split("--");
+      const playerRef = ref(database, `players/${id}`);
+      remove(playerRef);
+    }
+  });
 });
-
-
-
-
-
-renderDom()
