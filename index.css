@@ -18,6 +18,18 @@ body {
     min-height: 260px;
 }
 
+.logo {
+    background-image: url(images/logo.png);
+    background-size: cover;
+    background-position: center;
+    overflow: visible;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4%;
+}
+
 .glass {
     border: 1px solid white;
     border-style: outset;
